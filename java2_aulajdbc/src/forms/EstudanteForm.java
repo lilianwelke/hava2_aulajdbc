@@ -187,6 +187,7 @@ public class EstudanteForm extends javax.swing.JFrame {
             if (mode.equals("INS")) {
                 estudanteDAO.save(estudante);
             } else if (mode.equals("UPD")) {
+                estudante.setEstudante_id(estudante_id);
                 estudanteDAO.update(estudante);
             }
         } catch (Exception ex) {
@@ -219,6 +220,8 @@ public class EstudanteForm extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
+        this.mode = ("UPD");
+        this.estudante_id = Integer.parseInt(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
         nome.setText(tabela.getValueAt(tabela.getSelectedRow(), 1).toString());
         curso.setText(tabela.getValueAt(tabela.getSelectedRow(), 2).toString());
         data.setText(tabela.getValueAt(tabela.getSelectedRow(), 3).toString());
@@ -277,6 +280,7 @@ public class EstudanteForm extends javax.swing.JFrame {
     }
     
     private String mode = "INS";
+    private int estudante_id = 0;
     private EstudanteDAO estudanteDAO;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField curso;

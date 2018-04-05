@@ -155,6 +155,7 @@ public class AutorForm extends javax.swing.JFrame {
             if (mode.equals("INS")) { 
                 autorDAO.save(autor);                
             } else if (mode.equals("UPD")) { 
+                autor.setAutor_id(autor_id);
                 autorDAO.update(autor);
             }   
         } catch (Exception ex) {
@@ -203,9 +204,10 @@ public class AutorForm extends javax.swing.JFrame {
     }//GEN-LAST:event_removerActionPerformed
 
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
-        int selected = tabela.getSelectedRow();
-        nome.setText(tabela.getValueAt(selected, 1).toString());
         this.mode = "UPD";
+        this.autor_id = Integer.parseInt(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
+        int selected = tabela.getSelectedRow();
+        nome.setText(tabela.getValueAt(selected, 1).toString());        
     }//GEN-LAST:event_tabelaMouseClicked
 
     private void novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoActionPerformed
@@ -249,6 +251,7 @@ public class AutorForm extends javax.swing.JFrame {
         });
     }
     private String mode = "INS";    
+    private int autor_id = 0;
     private AutorDAO autorDAO;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;

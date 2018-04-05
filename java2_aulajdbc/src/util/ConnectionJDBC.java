@@ -19,7 +19,7 @@ public class ConnectionJDBC {
                 throw new Exception(ex);
             }
 
-            String servidor = "192.168.56.101";
+            String servidor = "192.168.21.226";
             String database = "/databases/aula07.fdb";
             String user = "SYSDBA";
             String password = "masterkey";

@@ -149,6 +149,7 @@ public class EditoraForm extends javax.swing.JFrame {
             if (mode.equals("INS")) {
                 editoraDAO.save(editora);
             } else if (mode.equals("UPD")) {
+                editora.setEditora_id(editora_id);
                 editoraDAO.update(editora);
             }
         } catch (Exception ex) {
@@ -185,6 +186,8 @@ public class EditoraForm extends javax.swing.JFrame {
     }//GEN-LAST:event_novoActionPerformed
 
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
+        this.mode = ("UPD");
+        this.editora_id = Integer.parseInt(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
         nome.setText(tabela.getValueAt(tabela.getSelectedRow(), 1).toString());
         municipio.setText(tabela.getValueAt(tabela.getSelectedRow(), 2).toString());
     }//GEN-LAST:event_tabelaMouseClicked
@@ -239,6 +242,7 @@ public class EditoraForm extends javax.swing.JFrame {
     }
 
     private String mode = "INS";
+    private int editora_id = 0;
     private EditoraDAO editoraDAO;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
