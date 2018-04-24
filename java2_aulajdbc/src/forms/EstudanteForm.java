@@ -234,9 +234,10 @@ public class EstudanteForm extends javax.swing.JFrame {
         model.setNumRows(0);
 
         try {
+            SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
             for (Estudante estudante : estudanteDAO.findAll()) {
                 String linha[] = {"" + estudante.getEstudante_id(), estudante.getNome(), estudante.getCurso(), 
-                    estudante.getData().toString(), estudante.getStatus()};
+                    dataFormatada.format(estudante.getData()), estudante.getStatus()};
                 model.addRow(linha);
             }
         } catch (Exception ex) {

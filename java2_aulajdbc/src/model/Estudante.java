@@ -50,4 +50,8 @@ public class Estudante {
         this.status = status;
     }
     
+    @Override
+    public String toString() { 
+        return estudante_id + " - " + nome;
+    }      
 }
