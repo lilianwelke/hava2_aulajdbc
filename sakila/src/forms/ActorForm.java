@@ -175,7 +175,11 @@ public class ActorForm extends javax.swing.JFrame {
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
         Actor actor = new Actor();
-        actor.setActor_id(Integer.parseInt(id_actor.getText()));
+        try {
+            actor.setActor_id(Integer.parseInt(id_actor.getText()));
+        } catch (Exception ex) {
+            actor.setActor_id(0);
+        }  
         actor.setFirst_nome(primeiro_nome.getText());
         actor.setLast_nome(ultimo_nome.getText());     
         actor.setLast_upd(new java.sql.Timestamp(new Date().getTime()));
