@@ -258,12 +258,13 @@ public class EmprestimoForm extends javax.swing.JFrame {
         try {
             Emprestimo emprestimo = emprestimoDAO.findById(emprestimo_id);
             id_emprestimo.setText("" + emprestimo_id);            
-            dataRetirada.setText("" + tabela.getValueAt(tabela.getSelectedRow(), 4));            
-            dataDevolucao.setText("" + tabela.getValueAt(tabela.getSelectedRow(), 5));
-            dataEntrega.setText("" + tabela.getValueAt(tabela.getSelectedRow(), 6));
-            status.setText(emprestimo.getStatus());
             cbLivro.getModel().setSelectedItem(emprestimo.getLivro());
-            cbEstudante.getModel().setSelectedItem(emprestimo.getEstudante());            
+            cbEstudante.getModel().setSelectedItem(emprestimo.getEstudante());     
+            dataRetirada.setText("" + tabela.getValueAt(tabela.getSelectedRow(), 3));            
+            dataDevolucao.setText("" + tabela.getValueAt(tabela.getSelectedRow(), 4));
+            dataEntrega.setText("" + tabela.getValueAt(tabela.getSelectedRow(), 5));
+            status.setText(emprestimo.getStatus());
+                   
         } catch (Exception ex) {
             Logger.getLogger(EmprestimoForm.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
