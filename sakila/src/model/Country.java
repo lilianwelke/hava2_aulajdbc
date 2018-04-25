@@ -33,5 +33,10 @@ public class Country {
 
     public void setLast_update(Timestamp last_update) {
         this.last_update = last_update;
+    }     
+    
+    @Override
+    public String toString() { 
+        return country_id + " - " + country;
     } 
 }
